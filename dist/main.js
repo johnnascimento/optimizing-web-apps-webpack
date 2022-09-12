@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log("bola 7"),angular.module("solitaire",["klondike","ngDraggable"])})();

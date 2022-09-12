@@ -1,0 +1,431 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "3.7.1",
+  "hash": "ccb8042892679408449c",
+  "time": 101,
+  "publicPath": "",
+  "assetsByChunkName": {
+    "main": "app.bundle.js"
+  },
+  "assets": [
+    {
+      "name": "app.bundle.js",
+      "size": 8295,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "main"
+      ],
+      "emitted": true
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "main": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "app.bundle.js"
+      ]
+    }
+  },
+  "chunks": [
+    {
+      "id": 0,
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "extraAsync": false,
+      "size": 4569,
+      "names": [
+        "main"
+      ],
+      "files": [
+        "app.bundle.js"
+      ],
+      "hash": "905a71678e05cc16ecad",
+      "parents": [],
+      "modules": [
+        {
+          "id": 0,
+          "identifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+          "name": "./app/app.js",
+          "index": 0,
+          "index2": 4,
+          "size": 222,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [],
+          "usedExports": true,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": 0,
+          "source": "\"use strict\";\n\nimport \"./klondike/scoring.js\";\nimport \"./klondike/klondike.js\";\nimport \"./klondike/board.js\";\nimport \"./klondike/game.js\";\n\nconsole.log('bola 7');\n\nangular.module(\"solitaire\", [\"klondike\", \"ngDraggable\"]);\n"
+        },
+        {
+          "id": 1,
+          "identifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\klondike\\scoring.js",
+          "name": "./app/klondike/scoring.js",
+          "index": 1,
+          "index2": 0,
+          "size": 867,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+          "issuerId": 0,
+          "issuerName": "./app/app.js",
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": 0,
+              "moduleIdentifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+              "module": "./app/app.js",
+              "moduleName": "./app/app.js",
+              "type": "harmony import",
+              "userRequest": "./klondike/scoring.js",
+              "loc": "3:0-31"
+            }
+          ],
+          "usedExports": false,
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "angular.module(\"klondike.scoring\", [])\n  .service(\"scoring\", [function Scoring() {\n    \"use strict\";\n\n    this.score = 0;\n\n    this.newGame = function () {\n      this.score = 0;\n    };\n    this.tableauCardTurnedUp = function () {\n      this.score += 5;\n    };\n    this.dropped = function (source, destionation) {\n      this.score += scoreForMoving(source, destionation) || 0;\n    };\n    this.wasteRecycled = function () {\n      this.score = Math.max(this.score - 100, 0);\n    };\n\n    function scoreForMoving(source, destionation) {\n      if (destionation.name === \"TableauPile\") {\n        if (source.name === \"FoundationPile\") {\n          return -15;\n        }\n        return 5;\n      }\n      if (destionation.name === \"FoundationPile\") {\n        if (source.name === \"TableauPile\" || source.name === \"WastePile\") {\n          return 10;\n        }\n      }\n    }\n  }]);\n"
+        },
+        {
+          "id": 2,
+          "identifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\klondike\\klondike.js",
+          "name": "./app/klondike/klondike.js",
+          "index": 2,
+          "index2": 1,
+          "size": 93,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+          "issuerId": 0,
+          "issuerName": "./app/app.js",
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": 0,
+              "moduleIdentifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+              "module": "./app/app.js",
+              "moduleName": "./app/app.js",
+              "type": "harmony import",
+              "userRequest": "./klondike/klondike.js",
+              "loc": "4:0-32"
+            }
+          ],
+          "usedExports": false,
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "angular.module(\"klondike\", [\n  \"klondike.game\",\n  \"klondike.board\",\n  \"klondike.scoring\"\n]);\n"
+        },
+        {
+          "id": 3,
+          "identifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\klondike\\board.js",
+          "name": "./app/klondike/board.js",
+          "index": 3,
+          "index2": 2,
+          "size": 1516,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+          "issuerId": 0,
+          "issuerName": "./app/app.js",
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": 0,
+              "moduleIdentifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+              "module": "./app/app.js",
+              "moduleName": "./app/app.js",
+              "type": "harmony import",
+              "userRequest": "./klondike/board.js",
+              "loc": "5:0-29"
+            }
+          ],
+          "usedExports": false,
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "(function () {\n  \"use strict\";\n\n  angular.module(\"klondike.board\", [\"ngRoute\", \"klondike.game\"])\n    .config([\"$routeProvider\", function ($routeProvider) {\n      $routeProvider\n        .when(\"/board\", {\n          templateUrl: \"klondike/board.html\",\n          controller: \"KlondikeController\"\n        })\n        .otherwise({redirectTo: \"/board\"});\n    }])\n    .controller(\"KlondikeController\", [\"$scope\", \"klondikeGame\", \"scoring\", function KlondikeController($scope, klondikeGame, scoring) {\n      klondikeGame.newGame();\n      $scope.game = klondikeGame;\n      $scope.scoring = scoring;\n    }])\n    .directive(\"sNoPile\", function () {\n      return {\n        restrict: \"E\",\n        template: \"<div class=\\\"no-pile\\\"></div>\"\n      };\n    })\n    .directive(\"sTableau\", function () {\n      return {\n        restrict: \"E\",\n        templateUrl: \"klondike/piles/tableau.html\"\n      };\n    })\n    .directive(\"sFoundation\", function () {\n      return {\n        restrict: \"E\",\n        templateUrl: \"klondike/piles/foundation.html\"\n      };\n    })\n    .directive(\"sCard\", function () {\n      return {\n        restrict: \"A\",\n        templateUrl: \"cards/card.html\",\n        scope: {\n          card: \"=\"\n        }\n      };\n    })\n    .directive(\"sRemainder\", function () {\n      return {\n        restrict: \"E\",\n        templateUrl: \"klondike/piles/remainder.html\"\n      };\n    })\n    .directive(\"sWaste\", function () {\n      return {\n        restrict: \"E\",\n        templateUrl: \"klondike/piles/waste.html\"\n      };\n    });\n})();\n"
+        },
+        {
+          "id": 4,
+          "identifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\klondike\\game.js",
+          "name": "./app/klondike/game.js",
+          "index": 4,
+          "index2": 3,
+          "size": 1871,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+          "issuerId": 0,
+          "issuerName": "./app/app.js",
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": 0,
+              "moduleIdentifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+              "module": "./app/app.js",
+              "moduleName": "./app/app.js",
+              "type": "harmony import",
+              "userRequest": "./klondike/game.js",
+              "loc": "6:0-28"
+            }
+          ],
+          "usedExports": false,
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "(function () {\n  \"use strict\";\n\n  angular.module(\"klondike.game\", [])\n    .service(\"klondikeGame\", [\"scoring\", KlondikeGame]);\n\n  function KlondikeGame(scoring) {\n    this.newGame = function newGame() {\n      var cards = new Deck().shuffled();\n      this.newGameFromDeck(cards);\n    };\n\n    this.newGameFromDeck = function (cards) {\n      scoring.newGame();\n      turnAllCardsDown(cards);\n      this.tableaus = dealTableaus(cards);\n      this.foundations = buildFoundations();\n      this.remainder = dealRemainder(cards);\n    };\n\n    function turnAllCardsDown(cards) {\n      cards.forEach(function (card) {\n        card.turnDown();\n      });\n    }\n\n    function dealTableaus(cards) {\n      var tableaus = [\n        new TableauPile(cards.slice(0, 1), scoring),\n        new TableauPile(cards.slice(1, 3), scoring),\n        new TableauPile(cards.slice(3, 6), scoring),\n        new TableauPile(cards.slice(6, 10), scoring),\n        new TableauPile(cards.slice(10, 15), scoring),\n        new TableauPile(cards.slice(15, 21), scoring),\n        new TableauPile(cards.slice(21, 28), scoring)\n      ];\n      tableaus.forEach(function (tableau) {\n        tableau.turnTopCardUp();\n      });\n      return tableaus;\n    }\n\n    function buildFoundations() {\n      return _.range(1, 5)\n        .map(function () {\n          return new FoundationPile([], scoring);\n        });\n    }\n\n    function dealRemainder(cards) {\n      return new RemainderPile(cards.slice(28), scoring);\n    }\n  }\n\n  KlondikeGame.prototype.tryMoveTopCardToAnyFoundation = function (sourcePile) {\n    if (sourcePile.isEmpty()) {\n      return;\n    }\n    var foundationThatWillAccept = _.find(this.foundations, function (foundation) {\n      return foundation.willAcceptCard(sourcePile.topCard());\n    });\n    if (foundationThatWillAccept) {\n      foundationThatWillAccept.moveCardsFrom(sourcePile);\n    }\n  };\n\n})();\n"
+        }
+      ],
+      "filteredModules": 0,
+      "origins": [
+        {
+          "moduleId": 0,
+          "module": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+          "moduleIdentifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+          "moduleName": "./app/app.js",
+          "loc": "",
+          "name": "main",
+          "reasons": []
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": 0,
+      "identifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+      "name": "./app/app.js",
+      "index": 0,
+      "index2": 4,
+      "size": 222,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [],
+      "usedExports": true,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": 0,
+      "source": "\"use strict\";\n\nimport \"./klondike/scoring.js\";\nimport \"./klondike/klondike.js\";\nimport \"./klondike/board.js\";\nimport \"./klondike/game.js\";\n\nconsole.log('bola 7');\n\nangular.module(\"solitaire\", [\"klondike\", \"ngDraggable\"]);\n"
+    },
+    {
+      "id": 1,
+      "identifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\klondike\\scoring.js",
+      "name": "./app/klondike/scoring.js",
+      "index": 1,
+      "index2": 0,
+      "size": 867,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+      "issuerId": 0,
+      "issuerName": "./app/app.js",
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": 0,
+          "moduleIdentifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+          "module": "./app/app.js",
+          "moduleName": "./app/app.js",
+          "type": "harmony import",
+          "userRequest": "./klondike/scoring.js",
+          "loc": "3:0-31"
+        }
+      ],
+      "usedExports": false,
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "angular.module(\"klondike.scoring\", [])\n  .service(\"scoring\", [function Scoring() {\n    \"use strict\";\n\n    this.score = 0;\n\n    this.newGame = function () {\n      this.score = 0;\n    };\n    this.tableauCardTurnedUp = function () {\n      this.score += 5;\n    };\n    this.dropped = function (source, destionation) {\n      this.score += scoreForMoving(source, destionation) || 0;\n    };\n    this.wasteRecycled = function () {\n      this.score = Math.max(this.score - 100, 0);\n    };\n\n    function scoreForMoving(source, destionation) {\n      if (destionation.name === \"TableauPile\") {\n        if (source.name === \"FoundationPile\") {\n          return -15;\n        }\n        return 5;\n      }\n      if (destionation.name === \"FoundationPile\") {\n        if (source.name === \"TableauPile\" || source.name === \"WastePile\") {\n          return 10;\n        }\n      }\n    }\n  }]);\n"
+    },
+    {
+      "id": 2,
+      "identifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\klondike\\klondike.js",
+      "name": "./app/klondike/klondike.js",
+      "index": 2,
+      "index2": 1,
+      "size": 93,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+      "issuerId": 0,
+      "issuerName": "./app/app.js",
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": 0,
+          "moduleIdentifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+          "module": "./app/app.js",
+          "moduleName": "./app/app.js",
+          "type": "harmony import",
+          "userRequest": "./klondike/klondike.js",
+          "loc": "4:0-32"
+        }
+      ],
+      "usedExports": false,
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "angular.module(\"klondike\", [\n  \"klondike.game\",\n  \"klondike.board\",\n  \"klondike.scoring\"\n]);\n"
+    },
+    {
+      "id": 3,
+      "identifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\klondike\\board.js",
+      "name": "./app/klondike/board.js",
+      "index": 3,
+      "index2": 2,
+      "size": 1516,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+      "issuerId": 0,
+      "issuerName": "./app/app.js",
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": 0,
+          "moduleIdentifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+          "module": "./app/app.js",
+          "moduleName": "./app/app.js",
+          "type": "harmony import",
+          "userRequest": "./klondike/board.js",
+          "loc": "5:0-29"
+        }
+      ],
+      "usedExports": false,
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "(function () {\n  \"use strict\";\n\n  angular.module(\"klondike.board\", [\"ngRoute\", \"klondike.game\"])\n    .config([\"$routeProvider\", function ($routeProvider) {\n      $routeProvider\n        .when(\"/board\", {\n          templateUrl: \"klondike/board.html\",\n          controller: \"KlondikeController\"\n        })\n        .otherwise({redirectTo: \"/board\"});\n    }])\n    .controller(\"KlondikeController\", [\"$scope\", \"klondikeGame\", \"scoring\", function KlondikeController($scope, klondikeGame, scoring) {\n      klondikeGame.newGame();\n      $scope.game = klondikeGame;\n      $scope.scoring = scoring;\n    }])\n    .directive(\"sNoPile\", function () {\n      return {\n        restrict: \"E\",\n        template: \"<div class=\\\"no-pile\\\"></div>\"\n      };\n    })\n    .directive(\"sTableau\", function () {\n      return {\n        restrict: \"E\",\n        templateUrl: \"klondike/piles/tableau.html\"\n      };\n    })\n    .directive(\"sFoundation\", function () {\n      return {\n        restrict: \"E\",\n        templateUrl: \"klondike/piles/foundation.html\"\n      };\n    })\n    .directive(\"sCard\", function () {\n      return {\n        restrict: \"A\",\n        templateUrl: \"cards/card.html\",\n        scope: {\n          card: \"=\"\n        }\n      };\n    })\n    .directive(\"sRemainder\", function () {\n      return {\n        restrict: \"E\",\n        templateUrl: \"klondike/piles/remainder.html\"\n      };\n    })\n    .directive(\"sWaste\", function () {\n      return {\n        restrict: \"E\",\n        templateUrl: \"klondike/piles/waste.html\"\n      };\n    });\n})();\n"
+    },
+    {
+      "id": 4,
+      "identifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\klondike\\game.js",
+      "name": "./app/klondike/game.js",
+      "index": 4,
+      "index2": 3,
+      "size": 1871,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+      "issuerId": 0,
+      "issuerName": "./app/app.js",
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": 0,
+          "moduleIdentifier": "C:\\Users\\johsilva\\Projects\\Projects\\johns-project\\webPack-transpiling\\optimizing-web-apps-webpack\\app\\app.js",
+          "module": "./app/app.js",
+          "moduleName": "./app/app.js",
+          "type": "harmony import",
+          "userRequest": "./klondike/game.js",
+          "loc": "6:0-28"
+        }
+      ],
+      "usedExports": false,
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "(function () {\n  \"use strict\";\n\n  angular.module(\"klondike.game\", [])\n    .service(\"klondikeGame\", [\"scoring\", KlondikeGame]);\n\n  function KlondikeGame(scoring) {\n    this.newGame = function newGame() {\n      var cards = new Deck().shuffled();\n      this.newGameFromDeck(cards);\n    };\n\n    this.newGameFromDeck = function (cards) {\n      scoring.newGame();\n      turnAllCardsDown(cards);\n      this.tableaus = dealTableaus(cards);\n      this.foundations = buildFoundations();\n      this.remainder = dealRemainder(cards);\n    };\n\n    function turnAllCardsDown(cards) {\n      cards.forEach(function (card) {\n        card.turnDown();\n      });\n    }\n\n    function dealTableaus(cards) {\n      var tableaus = [\n        new TableauPile(cards.slice(0, 1), scoring),\n        new TableauPile(cards.slice(1, 3), scoring),\n        new TableauPile(cards.slice(3, 6), scoring),\n        new TableauPile(cards.slice(6, 10), scoring),\n        new TableauPile(cards.slice(10, 15), scoring),\n        new TableauPile(cards.slice(15, 21), scoring),\n        new TableauPile(cards.slice(21, 28), scoring)\n      ];\n      tableaus.forEach(function (tableau) {\n        tableau.turnTopCardUp();\n      });\n      return tableaus;\n    }\n\n    function buildFoundations() {\n      return _.range(1, 5)\n        .map(function () {\n          return new FoundationPile([], scoring);\n        });\n    }\n\n    function dealRemainder(cards) {\n      return new RemainderPile(cards.slice(28), scoring);\n    }\n  }\n\n  KlondikeGame.prototype.tryMoveTopCardToAnyFoundation = function (sourcePile) {\n    if (sourcePile.isEmpty()) {\n      return;\n    }\n    var foundationThatWillAccept = _.find(this.foundations, function (foundation) {\n      return foundation.willAcceptCard(sourcePile.topCard());\n    });\n    if (foundationThatWillAccept) {\n      foundationThatWillAccept.moveCardsFrom(sourcePile);\n    }\n  };\n\n})();\n"
+    }
+  ],
+  "filteredModules": 0,
+  "children": []
+}

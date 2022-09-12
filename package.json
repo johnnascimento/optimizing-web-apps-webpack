@@ -1,23 +1,37 @@
 {
   "name": "solitaire",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "graphviz": "0.0.9",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.73.0",
+    "webpack-merge": "^5.8.0",
+    "webpack-stats-graph": "^1.0.8"
+  },
   "devDependencies": {
-    "bower": "^1.8.2",
-    "eslint": "^4.9.0",
+    "bower": "^1.8.14",
+    "eslint": "^4.19.1",
     "http-server": "^0.10.0",
-    "jasmine-core": "^2.8.0",
+    "jasmine-core": "^2.99.1",
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",
-    "karma-firefox-launcher": "^1.0.1",
-    "karma-jasmine": "^1.1.0",
-    "karma-junit-reporter": "^1.2.0"
+    "karma-firefox-launcher": "^1.3.0",
+    "karma-jasmine": "^1.1.2",
+    "karma-junit-reporter": "^1.2.0",
+    "nodemon": "^2.0.19",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.3"
   },
   "scripts": {
+    "build": "webpack --env production",
+    "build_dev": "webpack --env development",
+    "watch": "npm run build -- --watch",
+    "start": "nodemon -w webpack.config.js -x webpack-dev-server -- --env production",
+    "start_dev": "nodemon -w webpack.config.js -x webpack-dev-server -- --env development",
     "postinstall": "node node_modules/bower/bin/bower install",
-    "prestart": "npm install",
-    "start": "http-server -c-1 -o",
     "pretest": "npm install",
+    "generateJson": "webpack ./app/app.js -o ./app/dist/ --mode=production --json < stats.json",
+    "generateGraph": "npm run generateJson && webpack-stats-graph",
     "test": "karma start karma.conf.js",
     "test-single-run": "karma start karma.conf.js --single-run"
   }
