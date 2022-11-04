@@ -1,3 +1,5 @@
+import * as buildInformation from './buildInformation.gen.js';
+
 (function () {
   "use strict";
 

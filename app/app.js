@@ -1,5 +1,6 @@
 "use strict";
 
+// import "core-js";
 import "./klondike/scoring.js";
 import "./klondike/klondike.js";
 import "./klondike/board.js";
